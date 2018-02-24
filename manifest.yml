@@ -1,0 +1,17 @@
+memory: 680M
+instances: 1
+disk_quota: 512M
+buildpack: java_buildpack
+applications:
+- name: sdds-test
+  host: sdds-test
+  path: target/sdds-0.0.1-SNAPSHOT.jar
+  health-check-type: process
+#  services:
+#  - mysql-service
+  env:
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    SPRING_PROFILES_ACTIVE: cloud
+    CF_TARGET: https://api.run.pivotal.io
+    JBP_CONFIG_OPEN_JDK_JRE: '[memory_calculator: {stack_threads: 150, memory_sizes:
+      {stack: 512k}}]'
