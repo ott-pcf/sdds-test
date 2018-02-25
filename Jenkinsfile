@@ -1,5 +1,5 @@
 pipeline {
-    agent sdds
+    agent any
 
     stages {
 
