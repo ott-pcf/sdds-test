@@ -1,18 +1,18 @@
 pipeline {
-    agent sdds
+    agent any
 
     stages {
 
         stage ('Building Stage') {
 
             steps {
-                  step 'mvn clean package'
+                  bat 'mvn clean package'
             }
         }
 
         stage ('Deployment Stage') {
             steps {
-             	   step 'cf push'
+             	   bat 'cf push'
             }
         }
     }
